@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "name": "信義區",
+    "name_en":"Xinyi Dist."
+  },
+  {
+    "id": 2,
+    "name": "大安區",
+    "name_en":"Daan Dist."
+  },
+  {
+    "id": 3,
+    "name": "松山區",
+    "name_en":"Songshan Dist."
+  },
+  {
+    "id": 4,
+    "name": "南港區",
+    "name_en":"Nangang Dist."
+  },
+  {
+    "id": 5,
+    "name": "中山區",
+    "name_en":"Zhongshan Dist."
+  },
+  {
+    "id": 6,
+    "name": "中正區",
+    "name_en":"Zhongzheng Dist."
+  },
+  {
+    "id": 7,
+    "name": "文山區",
+    "name_en":"Wenshan Dist."
+  },
+  {
+    "id": 8,
+    "name": "萬華區",
+    "name_en":"Wanhua Dist."
+  },
+  {
+    "id": 9,
+    "name": "大同區",
+    "name_en":"Datong Dist."
+  },
+  {
+    "id": 10,
+    "name": "內湖區",
+    "name_en":"Neihu Dist."
+  },
+  {
+    "id": 11,
+    "name": "北投區",
+    "name_en":"Beitou Dist."
+  },
+  {
+    "id": 12,
+    "name": "士林區",
+    "name_en":"Shilin Dist."
+  }
+]
