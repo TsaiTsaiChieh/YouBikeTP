@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const { YouBike } = require('../schemas/YouBike');
 const { Region } = require('../schemas/Region');
+const { User } = require('../schemas/User');
 const { INTERNAL_SERVER_ERROR } = require('http-status');
 const regions = require('../json/regions.json');
 
@@ -9,6 +10,7 @@ const regions = require('../json/regions.json');
 //   try {
 //     await YouBike.sync();
 //     await Region.sync();
+//     await User.sync();
 //     return res.send('Sync DB.');
 //   } catch (err) {
 //     return res.status(INTERNAL_SERVER_ERROR).json({
