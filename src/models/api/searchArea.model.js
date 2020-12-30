@@ -19,8 +19,9 @@ async function searchArea(name) {
       `SELECT * 
          FROM YouBikes
     LEFT JOIN Regions ON Regions.id = YouBikes.region_id
-        WHERE Regions.name LIKE '%${name}%';`,
+        WHERE Regions.name LIKE :name`,
       {
+        replacements: { name: `%${name}%` },
         type: QueryTypes.SELECT,
         raw: true
       });
