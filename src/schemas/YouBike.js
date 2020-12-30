@@ -4,6 +4,7 @@ const { Sequelize } = require('sequelize');
 const YouBike = mysql.define('YouBike', {
   id: { type: Sequelize.INTEGER, allowNull: false, primaryKey: true, comment: '站點代號(sno)' },
   name: { type: Sequelize.STRING(16), allowNull: false, comment: '中文場站名稱(sna)' },
+  name_en: { type: Sequelize.STRING(64), allowNull: false, comment: '英文場站名稱(snaen)' },
   parking_num: { type: Sequelize.INTEGER(4), allowNull: false, comment: '場站總停車格(tot)' },
   available_num: { type: Sequelize.INTEGER(4), allowNull: false, comment: '可借車位數(sbi)' },
   region_id: { type: Sequelize.INTEGER, allowNull: false, comment: '所屬的區域代碼(sarea, sareaen)' },
