@@ -24,14 +24,26 @@ class PasswordIsWrong extends ExtendableError {
   }
 }
 
+class TokenExpired extends ExtendableError {
+  constructor(message = 'Should login again', status = 401001, isPublic = true, code = UNAUTHORIZED) {
+    super(message, status, isPublic, code);
+  }
+}
+
 class TokenNotFound extends ExtendableError {
-  constructor(message, status = 403000, isPublic = true, code = NOT_FOUND) {
+  constructor(message, status = 404000, isPublic = true, code = NOT_FOUND) {
     super(message, status, isPublic, code);
   }
 }
 
 class EmailNotFound extends ExtendableError {
-  constructor(message, status = 403001, isPublic = true, code = NOT_FOUND) {
+  constructor(message, status = 404001, isPublic = true, code = NOT_FOUND) {
+    super(message, status, isPublic, code);
+  }
+}
+
+class SiteNotFound extends ExtendableError {
+  constructor(message, status = 404002, isPublic = true, code = NOT_FOUND) {
     super(message, status, isPublic, code);
   }
 }
@@ -39,6 +51,8 @@ class EmailNotFound extends ExtendableError {
 module.exports = {
   ResourceAlreadyExist,
   PasswordIsWrong,
+  TokenExpired,
   TokenNotFound,
-  EmailNotFound
+  EmailNotFound,
+  SiteNotFound
 };
