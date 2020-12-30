@@ -31,6 +31,7 @@ function repackage(data) {
     temp[key] = {
       id: data[key].sno,
       name: data[key].sna,
+      name_en: data[key].sareaen,
       parking_num: parseInt(data[key].tot),
       available_num: parseInt(data[key].sbi),
       region_id: regionMapping(data[key].sarea),
