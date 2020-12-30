@@ -157,7 +157,7 @@ Authorization | String | Access token preceding Bearer . For example: `Bearer 37
 
 Field | Type | Description
 ---------|----------|---------
-comment_id | number | Required
+comment_id | Number | Required
 
 * **Request Body Example:**
 ```JSON
@@ -173,4 +173,403 @@ comment_id | number | Required
         "id": 2
     }
 }
+```
+
+## Most comments
+* **End Point:** `/api/most_comment`
+* **Method:** `GET`
+* **Query Parameters::**
+
+Field | Type | Description
+---------|----------|---------
+page | Number | Not Required
+
+* **Request Example:**
+```
+https://[Host_Name]/api/most_comment?page=2
+```
+
+* **Success Response: 200**
+```JSON
+[
+    {
+        "id": 17,
+        "name": "民生光復路口",
+        "parking_num": 34,
+        "available_num": 16,
+        "address": "光復北路/民生東路(西北側)",
+        "address_en": "The N.W. side of Road Guangfu S & Road Minsheng E.",
+        "regionName": "松山區",
+        "regionNameEn": "Songshan Dist.",
+        "comment_count": 5
+    },
+    {
+        "id": 20,
+        "name": "捷運科技大樓站",
+        "parking_num": 58,
+        "available_num": 16,
+        "address": "科技大樓站對面(復興南路2段西側)(鄰近資訊科學展示中心)",
+        "address_en": "No.235, Sec. 2, Fusing S. Rd.",
+        "regionName": "大安區",
+        "regionNameEn": "Daan Dist.",
+        "comment_count": 3
+    },
+    {
+        "id": 1,
+        "name": "捷運市政府站(3號出口)",
+        "parking_num": 180,
+        "available_num": 15,
+        "address": "忠孝東路/松仁路(東南側)",
+        "address_en": "The S.W. side of Road Zhongxiao East Road & Road Chung Yan.",
+        "regionName": "信義區",
+        "regionNameEn": "Xinyi Dist.",
+        "comment_count": 2
+    }
+]
+```
+
+## Search area
+* **End Point:** `/api/search_area`
+* **Method:** `GET`
+* **Query Parameters::**
+
+Field | Type | Description
+---------|----------|---------
+name | String | Required
+
+* **Request Example:**
+```
+https://[Host_Name]/api/search_area?name=大同
+```
+
+* **Success Response: 200**
+```JSON
+[
+    {
+        "id": 9,
+        "name": "大同區",
+        "name_en": "Datong Dist.",
+        "parking_num": 32,
+        "available_num": 17,
+        "region_id": 9,
+        "mday": "2020-12-30T12:57:27.000Z",
+        "lat": "25.07222800",
+        "lng": "121.51019500",
+        "address": "延平北路四段/酒泉街(西北側)",
+        "address_en": "The N.W. side of Sec. 4, Yanping N. Rd. & Jiuquan St.",
+        "vacant": 15,
+        "act": 1,
+        "createdAt": "2020-12-30T12:58:20.000Z",
+        "updatedAt": "2020-12-30T13:00:15.000Z"
+    }
+]
+```
+
+## Search bike
+* **End Point:** `/api/search_bike`
+* **Method:** `GET`
+* **Query Parameters::**
+
+Field | Type | Description
+---------|----------|---------
+num | Number | Not Required
+
+* **Request Example:**
+```
+https://[Host_Name]/api/search_bike?num=0
+```
+
+* **Success Response: 200**
+```JSON
+[
+    {
+        "id": 19,
+        "name": "象山公園",
+        "name_en": "Xinyi Dist.",
+        "parking_num": 30,
+        "available_num": 0,
+        "region_id": 1,
+        "mday": "2020-12-30T12:57:36.000Z",
+        "lat": "25.02863000",
+        "lng": "121.56981000",
+        "address": "松仁路153巷17號對面(鄰近象山步道)",
+        "address_en": "No.17, Ln. 153, Songren Rd",
+        "vacant": 29,
+        "act": 1,
+        "createdAt": "2020-12-30T12:58:06.000Z",
+        "updatedAt": "2020-12-30T13:00:04.000Z"
+    },
+    {
+        "id": 47,
+        "name": "捷運忠孝新生站(4號出口)",
+        "name_en": "Daan Dist.",
+        "parking_num": 34,
+        "available_num": 0,
+        "region_id": 2,
+        "mday": "2020-11-02T06:55:12.000Z",
+        "lat": "25.04227500",
+        "lng": "121.53393900",
+        "address": "忠孝東路三段 / 新生南路一段口 東北側(鄰近國立台北科技大學)",
+        "address_en": "The intersection of Sec. 3, Zhongxiao E. Rd. & Ln. 10, Sec. 3, Zhongxiao E. Rd.",
+        "vacant": 0,
+        "act": 0,
+        "createdAt": "2020-12-30T12:58:12.000Z",
+        "updatedAt": "2020-12-30T13:00:09.000Z"
+    },
+    {
+        "id": 55,
+        "name": "臺北田徑場",
+        "name_en": "Songshan Dist.",
+        "parking_num": 46,
+        "available_num": 0,
+        "region_id": 3,
+        "mday": "2020-12-30T12:57:26.000Z",
+        "lat": "25.04950500",
+        "lng": "121.54940800",
+        "address": "敦化北路3號(鄰近臺北小巨蛋/台北田徑場)",
+        "address_en": "No.3, Dunhua N. Rd.",
+        "vacant": 45,
+        "act": 1,
+        "createdAt": "2020-12-30T12:58:14.000Z",
+        "updatedAt": "2020-12-30T13:00:11.000Z"
+    },
+    {
+        "id": 61,
+        "name": "台灣科技大學",
+        "name_en": "Daan Dist.",
+        "parking_num": 86,
+        "available_num": 0,
+        "region_id": 2,
+        "mday": "2020-12-30T12:57:41.000Z",
+        "lat": "25.01310000",
+        "lng": "121.53972300",
+        "address": "基隆路四段/基隆路四段73巷交叉口(鄰近國立台灣科技大學)",
+        "address_en": "The intersection of Sec. 4, Keelung Rd. & Ln. 73, Sec. 4, Keelung Rd",
+        "vacant": 83,
+        "act": 1,
+        "createdAt": "2020-12-30T12:58:15.000Z",
+        "updatedAt": "2020-12-30T13:00:12.000Z"
+    },
+    {
+        "id": 97,
+        "name": "捷運劍潭站(2號出口)",
+        "name_en": "Shilin Dist.",
+        "parking_num": 52,
+        "available_num": 0,
+        "region_id": 12,
+        "mday": "2020-12-30T12:57:24.000Z",
+        "lat": "25.08282500",
+        "lng": "121.52472100",
+        "address": "基河路18號對面(鄰近劍潭公園)",
+        "address_en": "The opposite of No.18, Jihe Rd.",
+        "vacant": 51,
+        "act": 1,
+        "createdAt": "2020-12-30T12:58:25.000Z",
+        "updatedAt": "2020-12-30T13:00:20.000Z"
+    },
+    {
+        "id": 99,
+        "name": "捷運雙連站(2號出口)",
+        "name_en": "Datong Dist.",
+        "parking_num": 42,
+        "available_num": 0,
+        "region_id": 9,
+        "mday": "2020-10-29T03:58:50.000Z",
+        "lat": "25.05786600",
+        "lng": "121.52071100",
+        "address": "民生西路/萬全街(東北側)",
+        "address_en": "The N.E. side of Minsheng W. Rd. & Wanquan St.",
+        "vacant": 2,
+        "act": 1,
+        "createdAt": "2020-12-30T12:58:25.000Z",
+        "updatedAt": "2020-12-30T13:00:21.000Z"
+    },
+    {
+        "id": 101,
+        "name": "華山文創園區",
+        "name_en": "Zhongzheng Dist.",
+        "parking_num": 50,
+        "available_num": 0,
+        "region_id": 6,
+        "mday": "2020-11-02T06:56:43.000Z",
+        "lat": "25.04366800",
+        "lng": "121.52848700",
+        "address": "忠孝東路二段41號前(鄰近華山文化創意產業園區/光華數位新天地(光華商場)/三創生活園區)",
+        "address_en": "Front of No.41, Sec. 2, Zhongxiao E. Rd.",
+        "vacant": 0,
+        "act": 0,
+        "createdAt": "2020-12-30T12:58:26.000Z",
+        "updatedAt": "2020-12-30T13:00:21.000Z"
+    },
+    {
+        "id": 185,
+        "name": "瑠公公園",
+        "name_en": "Daan Dist.",
+        "parking_num": 30,
+        "available_num": 0,
+        "region_id": 2,
+        "mday": "2020-11-02T06:55:56.000Z",
+        "lat": "25.04234200",
+        "lng": "121.54605000",
+        "address": "大安路一段/大安路一段75巷(西側)(鄰近東區地下街)",
+        "address_en": "Ln. 75, Sec. 1/Ln. 75, Sec. 1, Da’an Rd.",
+        "vacant": 0,
+        "act": 0,
+        "createdAt": "2020-12-30T12:58:45.000Z",
+        "updatedAt": "2020-12-30T13:00:42.000Z"
+    },
+    {
+        "id": 229,
+        "name": "市民太原路口",
+        "name_en": "Datong Dist.",
+        "parking_num": 34,
+        "available_num": 0,
+        "region_id": 9,
+        "mday": "2020-12-28T01:01:16.000Z",
+        "lat": "25.04939400",
+        "lng": "121.51461100",
+        "address": "鄭州路23號東側人行道(市民太原路口)(鄰近台北地下街/台北車站)",
+        "address_en": "No.23, Zhengzhou Rd. (east side)",
+        "vacant": 0,
+        "act": 0,
+        "createdAt": "2020-12-30T12:58:53.000Z",
+        "updatedAt": "2020-12-30T13:00:50.000Z"
+    },
+    {
+        "id": 240,
+        "name": "南京建國路口",
+        "name_en": "Zhongshan Dist.",
+        "parking_num": 58,
+        "available_num": 0,
+        "region_id": 5,
+        "mday": "2020-11-02T07:01:53.000Z",
+        "lat": "25.05214100",
+        "lng": "121.53680200",
+        "address": "南京東路二段/建國北路二段(北側)(鄰近袖珍博物館)",
+        "address_en": "Sec. 2, Nanjing E. Rd./Sec. 2, Jianguo N. Rd.",
+        "vacant": 0,
+        "act": 1,
+        "createdAt": "2020-12-30T12:58:55.000Z",
+        "updatedAt": "2020-12-30T13:00:53.000Z"
+    },
+    {
+        "id": 252,
+        "name": "大安運動中心",
+        "name_en": "Daan Dist.",
+        "parking_num": 34,
+        "available_num": 0,
+        "region_id": 2,
+        "mday": "2020-12-30T12:57:40.000Z",
+        "lat": "25.02054400",
+        "lng": "121.54560800",
+        "address": "辛亥路三段55號前方人行道(大安運動中心)(鄰近國立臺北教育大學)",
+        "address_en": "No.55, Sec. 3, Xinhai Rd.",
+        "vacant": 33,
+        "act": 1,
+        "createdAt": "2020-12-30T12:58:58.000Z",
+        "updatedAt": "2020-12-30T13:00:55.000Z"
+    },
+    {
+        "id": 277,
+        "name": "中山堂",
+        "name_en": "Zhongzheng Dist.",
+        "parking_num": 32,
+        "available_num": 0,
+        "region_id": 6,
+        "mday": "2020-12-30T12:56:33.000Z",
+        "lat": "25.04409100",
+        "lng": "121.51025000",
+        "address": "延平南路/武昌街一段東南角人行道(延平武昌街口)(鄰近中山堂/西門町)",
+        "address_en": "Yanping S. Rd./Sec. 1, Wuchang St. intersection(southeast)",
+        "vacant": 31,
+        "act": 1,
+        "createdAt": "2020-12-30T12:59:04.000Z",
+        "updatedAt": "2020-12-30T13:00:02.000Z"
+    },
+    {
+        "id": 307,
+        "name": "仁愛安和路口",
+        "name_en": "Daan Dist.",
+        "parking_num": 30,
+        "available_num": 0,
+        "region_id": 2,
+        "mday": "2020-12-30T12:56:32.000Z",
+        "lat": "25.03757000",
+        "lng": "121.55207600",
+        "address": "仁愛路四段 / 仁愛路四段222巷(東南側)",
+        "address_en": "Sec. 4, Ren’ai Rd. / Ln. 222, Sec. 4, Ren’ai Rd.",
+        "vacant": 30,
+        "act": 1,
+        "createdAt": "2020-12-30T12:59:12.000Z",
+        "updatedAt": "2020-12-30T13:00:08.000Z"
+    },
+    {
+        "id": 375,
+        "name": "銘傳大學",
+        "name_en": "Shilin Dist.",
+        "parking_num": 48,
+        "available_num": 0,
+        "region_id": 12,
+        "mday": "2020-12-30T12:56:19.000Z",
+        "lat": "25.08771400",
+        "lng": "121.52676600",
+        "address": "中山北路五段250號(銘傳大學對側)(鄰近銘傳大學/士林夜市)",
+        "address_en": "No.250, Sec. 5, Zhongshan N. Rd.",
+        "vacant": 48,
+        "act": 1,
+        "createdAt": "2020-12-30T12:59:28.000Z",
+        "updatedAt": "2020-12-30T13:00:22.000Z"
+    },
+    {
+        "id": 378,
+        "name": "陽光街321巷口",
+        "name_en": "Neihu Dist.",
+        "parking_num": 42,
+        "available_num": 0,
+        "region_id": 10,
+        "mday": "2020-12-21T08:17:27.000Z",
+        "lat": "25.07319300",
+        "lng": "121.57869100",
+        "address": "陽光街321巷 / 陽光街口(南側)",
+        "address_en": "Ln. 321, Yangguang St. / Yangguang St.",
+        "vacant": 0,
+        "act": 0,
+        "createdAt": "2020-12-30T12:59:29.000Z",
+        "updatedAt": "2020-12-30T13:00:23.000Z"
+    },
+    {
+        "id": 387,
+        "name": "吳興街260巷",
+        "name_en": "Xinyi Dist.",
+        "parking_num": 32,
+        "available_num": 0,
+        "region_id": 1,
+        "mday": "2020-12-30T12:56:36.000Z",
+        "lat": "25.02610000",
+        "lng": "121.56316000",
+        "address": "吳興街260巷 / 吳興街260巷19弄口(鄰近台北醫學大學)",
+        "address_en": "Ln. 260, Wuxing St. / Aly. 19, Ln. 260, Wuxing St.",
+        "vacant": 31,
+        "act": 1,
+        "createdAt": "2020-12-30T12:59:31.000Z",
+        "updatedAt": "2020-12-30T13:00:24.000Z"
+    },
+    {
+        "id": 400,
+        "name": "和平敦化路口",
+        "name_en": "Daan Dist.",
+        "parking_num": 34,
+        "available_num": 0,
+        "region_id": 2,
+        "mday": "2020-12-30T12:56:44.000Z",
+        "lat": "25.02444000",
+        "lng": "121.54907600",
+        "address": "和平東路三段 / 敦化南路二段口(東側)",
+        "address_en": "Sec. 3, Heping E. Rd. / Sec. 2, Dunhua S. Rd. intersection",
+        "vacant": 33,
+        "act": 1,
+        "createdAt": "2020-12-30T12:59:34.000Z",
+        "updatedAt": "2020-12-30T13:00:27.000Z"
+    }
+]
 ```
