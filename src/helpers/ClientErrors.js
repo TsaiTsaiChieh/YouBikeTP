@@ -48,11 +48,18 @@ class SiteNotFound extends ExtendableError {
   }
 }
 
+class CommentNotFound extends ExtendableError {
+  constructor(message, status = 404003, isPublic = true, code = NOT_FOUND) {
+    super(message, status, isPublic, code);
+  }
+}
+
 module.exports = {
   ResourceAlreadyExist,
   PasswordIsWrong,
   TokenExpired,
   TokenNotFound,
   EmailNotFound,
-  SiteNotFound
+  SiteNotFound,
+  CommentNotFound
 };
