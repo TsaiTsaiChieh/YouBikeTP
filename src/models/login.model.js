@@ -19,8 +19,9 @@ async function model(args) {
 
 async function getPassword(email) {
   try {
-    const { password } = await User.findOne({ attributes: ['password'], where: { email }, raw: true });
-    return Promise.resolve(password);
+    const result = await User.findOne({ attributes: ['password'], where: { email }, raw: true });
+    if (!result) return Promise.reject(new ClientErrors.EmailNotFound());
+    return Promise.resolve(result.password);
   } catch (err) {
     return Promise.reject(new ServerErrors.MySQLError(err.stack));
   }
