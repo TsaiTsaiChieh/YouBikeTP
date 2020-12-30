@@ -1,7 +1,4 @@
-const { mysql } = require('../../configs/mysqlSetting');
 const ServerErrors = require('../../helpers/ServerErrors');
-const limit = 3;
-const { QueryTypes } = require('sequelize');
 const { YouBike } = require('../../schemas/YouBike');
 const Op = require('sequelize').Op;
 
