@@ -9,7 +9,7 @@ const User = mysql.define('User', {
   token: { type: Sequelize.STRING(64), comment: '使用者 token' },
   token_expired: { type: Sequelize.DATE, comment: 'token 過期時間' }
 }, {
-  indexes: [{ fields: ['email'] }]
+  indexes: [{ fields: ['email'] }, { fields: ['token'] }]
 });
 
 module.exports = { User };
