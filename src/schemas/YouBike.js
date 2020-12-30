@@ -16,7 +16,7 @@ const YouBike = mysql.define('YouBike', {
   vacant: { type: Sequelize.INTEGER(4), allowNull: false, comment: '可還空位數(bemp)' },
   act: { type: Sequelize.BOOLEAN, allowNull: false, comment: '場站是否暫停營運(act)' }
 }, {
-  indexes: [{ fields: ['region_id'] }]
+  indexes: [{ fields: ['region_id'] }, { fields: ['available_num'] }]
 });
 
 module.exports = { YouBike };
