@@ -1,3 +1,15 @@
+## API URL
+* **User registration:** `POST` http://ec2-3-19-50-116.us-east-2.compute.amazonaws.com/user
+* **User login:** `POST` http://ec2-3-19-50-116.us-east-2.compute.amazonaws.com/token
+* **User logout:** `DELETE` http://ec2-3-19-50-116.us-east-2.compute.amazonaws.com/token
+* **Add comment:** `POST` http://ec2-3-19-50-116.us-east-2.compute.amazonaws.com/comment
+* **Update comment:** `PATCH` http://ec2-3-19-50-116.us-east-2.compute.amazonaws.com/comment
+* **Delete comment:** `DELETE` http://ec2-3-19-50-116.us-east-2.compute.amazonaws.com/comment
+* **Most comment:** `GET` http://ec2-3-19-50-116.us-east-2.compute.amazonaws.com/api/most_comment
+* **Search site name:** `GET` http://ec2-3-19-50-116.us-east-2.compute.amazonaws.com/api/search_site_name?name=安和
+* **Search area:** `GET` http://ec2-3-19-50-116.us-east-2.compute.amazonaws.com/api/search_area?name=大同
+* **Search bike:** `GET` http://ec2-3-19-50-116.us-east-2.compute.amazonaws.com/api/search_bike?num=0
+
 ## User registration
 * **End Point:** `/user/`
 * **Method:** `POST`
@@ -224,6 +236,77 @@ https://[Host_Name]/api/most_comment?page=2
         "regionName": "信義區",
         "regionNameEn": "Xinyi Dist.",
         "comment_count": 2
+    }
+]
+```
+
+## Search area
+* **End Point:** `/api/search_area`
+* **Method:** `GET`
+* **Query Parameters::**
+
+Field | Type | Description
+---------|----------|---------
+name | String | Required
+
+* **Request Example:**
+```
+https://[Host_Name]/api/search_site_name?name=安和
+```
+
+* **Success Response: 200**
+```JSON
+[
+    {
+        "id": 71,
+        "name": "捷運信義安和站(4號出口)",
+        "name_en": "Daan Dist.",
+        "parking_num": 30,
+        "available_num": 14,
+        "region_id": 2,
+        "mday": "2020-12-30T12:57:17.000Z",
+        "lat": "25.03298500",
+        "lng": "121.55420400",
+        "address": "通化街/信義路四段(西南側)(鄰近臨江街夜市(通化夜市)/大安親子館)",
+        "address_en": "The S.W. side of Tonghua St. & Sec. 4, Xinyi Road., Daan Dist.",
+        "vacant": 15,
+        "act": 1,
+        "createdAt": "2020-12-30T12:58:19.000Z",
+        "updatedAt": "2020-12-30T13:00:14.000Z"
+    },
+    {
+        "id": 307,
+        "name": "仁愛安和路口",
+        "name_en": "Daan Dist.",
+        "parking_num": 30,
+        "available_num": 0,
+        "region_id": 2,
+        "mday": "2020-12-30T12:56:32.000Z",
+        "lat": "25.03757000",
+        "lng": "121.55207600",
+        "address": "仁愛路四段 / 仁愛路四段222巷(東南側)",
+        "address_en": "Sec. 4, Ren’ai Rd. / Ln. 222, Sec. 4, Ren’ai Rd.",
+        "vacant": 30,
+        "act": 1,
+        "createdAt": "2020-12-30T12:59:12.000Z",
+        "updatedAt": "2020-12-30T13:00:08.000Z"
+    },
+    {
+        "id": 312,
+        "name": "捷運信義安和站(1號出口)",
+        "name_en": "Daan Dist.",
+        "parking_num": 34,
+        "available_num": 12,
+        "region_id": 2,
+        "mday": "2020-12-30T12:56:34.000Z",
+        "lat": "25.03332300",
+        "lng": "121.55278700",
+        "address": "信義路四段 / 安和路一段口(東北側)",
+        "address_en": "Sec. 4, Xinyi Rd. / Sec. 1, Anhe Rd.",
+        "vacant": 22,
+        "act": 1,
+        "createdAt": "2020-12-30T12:59:13.000Z",
+        "updatedAt": "2020-12-30T13:00:09.000Z"
     }
 ]
 ```
@@ -502,74 +585,6 @@ https://[Host_Name]/api/search_bike?num=0
         "act": 1,
         "createdAt": "2020-12-30T12:59:12.000Z",
         "updatedAt": "2020-12-30T13:00:08.000Z"
-    },
-    {
-        "id": 375,
-        "name": "銘傳大學",
-        "name_en": "Shilin Dist.",
-        "parking_num": 48,
-        "available_num": 0,
-        "region_id": 12,
-        "mday": "2020-12-30T12:56:19.000Z",
-        "lat": "25.08771400",
-        "lng": "121.52676600",
-        "address": "中山北路五段250號(銘傳大學對側)(鄰近銘傳大學/士林夜市)",
-        "address_en": "No.250, Sec. 5, Zhongshan N. Rd.",
-        "vacant": 48,
-        "act": 1,
-        "createdAt": "2020-12-30T12:59:28.000Z",
-        "updatedAt": "2020-12-30T13:00:22.000Z"
-    },
-    {
-        "id": 378,
-        "name": "陽光街321巷口",
-        "name_en": "Neihu Dist.",
-        "parking_num": 42,
-        "available_num": 0,
-        "region_id": 10,
-        "mday": "2020-12-21T08:17:27.000Z",
-        "lat": "25.07319300",
-        "lng": "121.57869100",
-        "address": "陽光街321巷 / 陽光街口(南側)",
-        "address_en": "Ln. 321, Yangguang St. / Yangguang St.",
-        "vacant": 0,
-        "act": 0,
-        "createdAt": "2020-12-30T12:59:29.000Z",
-        "updatedAt": "2020-12-30T13:00:23.000Z"
-    },
-    {
-        "id": 387,
-        "name": "吳興街260巷",
-        "name_en": "Xinyi Dist.",
-        "parking_num": 32,
-        "available_num": 0,
-        "region_id": 1,
-        "mday": "2020-12-30T12:56:36.000Z",
-        "lat": "25.02610000",
-        "lng": "121.56316000",
-        "address": "吳興街260巷 / 吳興街260巷19弄口(鄰近台北醫學大學)",
-        "address_en": "Ln. 260, Wuxing St. / Aly. 19, Ln. 260, Wuxing St.",
-        "vacant": 31,
-        "act": 1,
-        "createdAt": "2020-12-30T12:59:31.000Z",
-        "updatedAt": "2020-12-30T13:00:24.000Z"
-    },
-    {
-        "id": 400,
-        "name": "和平敦化路口",
-        "name_en": "Daan Dist.",
-        "parking_num": 34,
-        "available_num": 0,
-        "region_id": 2,
-        "mday": "2020-12-30T12:56:44.000Z",
-        "lat": "25.02444000",
-        "lng": "121.54907600",
-        "address": "和平東路三段 / 敦化南路二段口(東側)",
-        "address_en": "Sec. 3, Heping E. Rd. / Sec. 2, Dunhua S. Rd. intersection",
-        "vacant": 33,
-        "act": 1,
-        "createdAt": "2020-12-30T12:59:34.000Z",
-        "updatedAt": "2020-12-30T13:00:27.000Z"
     }
 ]
 ```
