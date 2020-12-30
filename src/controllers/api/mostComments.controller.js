@@ -7,12 +7,12 @@ async function controller(req, res) {
     type: 'object',
     properties: {
       page: {
-        type: 'number',
-        default: 1
+        type: 'number'
       }
     }
   };
   req.query.page = parseInt(req.query.page);
+  if (!req.query.page) req.query.page = 1;
   const valid = ajv.validate(schema, req.query);
   if (!valid) return res.status(BAD_REQUEST).json(ajv.errors);
   try {
