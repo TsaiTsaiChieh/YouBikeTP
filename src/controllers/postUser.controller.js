@@ -3,6 +3,7 @@ const ajv = require('../helpers/ajvUtil');
 const model = require('../models/postUser.model');
 
 async function controller(req, res) {
+  const now = Date.now();
   const schema = {
     type: 'object',
     required: ['name', 'email', 'password'],
@@ -27,6 +28,8 @@ async function controller(req, res) {
   };
   const valid = ajv.validate(schema, req.body);
   if (!valid) return res.status(BAD_REQUEST).json(ajv.errors);
+  req.body.now = now;
+
   try {
     return res.json(await model(req.body));
   } catch (err) {
