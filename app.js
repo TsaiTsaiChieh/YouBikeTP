@@ -12,6 +12,7 @@ app.use('/migration', require('./src/routes/migration'));
 app.use('/user', require('./src/routes/user'));
 app.use('/token', require('./src/routes/token'));
 app.use('/comment', require('./src/routes/comment'));
+app.use('/api', require('./src/routes/api'));
 
 app.listen(appPort, function() {
   console.log(`YouBike on port: ${appPort}`);
