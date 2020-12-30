@@ -75,3 +75,102 @@ Authorization | String | Access token preceding Bearer . For example: `Bearer 37
 ```
 Logout successful.
 ```
+
+## Add comment
+* **End Point:** `/comment/`
+* **Method:** `POST`
+* **Request Headers:**
+
+Field | Type | Description
+---------|----------|---------
+Authorization | String | Access token preceding Bearer . For example: `Bearer 3733dfc7c18372575de7183399ffc5894576047f992f3594bedf614229a43994`
+
+* **Request Body:**
+
+Field | Type | Description
+---------|----------|---------
+site_id | number | Required
+comment | String | Required 
+
+* **Request Body Example:**
+```JSON
+{
+    "site_id": 17,
+    "comment": "test17"
+}
+```
+
+* **Success Response: 200**
+```JSON
+{
+    "comment": {
+        "id": 3,
+        "comment": "test17"
+    }
+}
+```
+
+## Update comment
+* **End Point:** `/comment/`
+* **Method:** `PATCH`
+* **Request Headers:**
+
+Field | Type | Description
+---------|----------|---------
+Authorization | String | Access token preceding Bearer . For example: `Bearer 3733dfc7c18372575de7183399ffc5894576047f992f3594bedf614229a43994`
+
+* **Request Body:**
+
+Field | Type | Description
+---------|----------|---------
+comment_id | number | Required
+comment | String | Required 
+
+* **Request Body Example:**
+```JSON
+{
+    "comment_id": 2,
+    "comment": "測試修改"
+}
+```
+
+* **Success Response: 200**
+```JSON
+{
+    "comment": {
+        "id": 2,
+        "comment": "測試修改"
+    }
+}
+```
+
+## DELETE comment
+* **End Point:** `/comment/`
+* **Method:** `DELETE`
+* **Request Headers:**
+
+Field | Type | Description
+---------|----------|---------
+Authorization | String | Access token preceding Bearer . For example: `Bearer 3733dfc7c18372575de7183399ffc5894576047f992f3594bedf614229a43994`
+
+* **Request Body:**
+
+Field | Type | Description
+---------|----------|---------
+comment_id | number | Required
+
+* **Request Body Example:**
+```JSON
+{
+    "comment_id": 2
+}
+```
+
+* **Success Response: 200**
+```JSON
+{
+    "comment": {
+        "id": 2
+    }
+}
+```
