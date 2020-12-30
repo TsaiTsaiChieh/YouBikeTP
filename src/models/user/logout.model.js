@@ -1,6 +1,6 @@
-const ServerErrors = require('../helpers/ServerErrors');
-const { User } = require('../schemas/User');
-const ClientErrors = require('../helpers/ClientErrors');
+const ServerErrors = require('../../helpers/ServerErrors');
+const { User } = require('../../schemas/User');
+const ClientErrors = require('../../helpers/ClientErrors');
 
 async function model(token) {
   try {

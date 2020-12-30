@@ -1,8 +1,8 @@
-const ServerErrors = require('../helpers/ServerErrors');
-const { User } = require('../schemas/User');
+const ServerErrors = require('../../helpers/ServerErrors');
+const { User } = require('../../schemas/User');
 const bcrypt = require('bcrypt');
-const ClientErrors = require('../helpers/ClientErrors');
-const { getToken } = require('../helpers/tokenModules');
+const ClientErrors = require('../../helpers/ClientErrors');
+const { getToken } = require('../../helpers/tokenModules');
 
 async function model(args) {
   try {

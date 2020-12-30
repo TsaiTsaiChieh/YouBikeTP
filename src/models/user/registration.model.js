@@ -1,9 +1,9 @@
-const ServerErrors = require('../helpers/ServerErrors');
-const { User } = require('../schemas/User');
-const ClientErrors = require('../helpers/ClientErrors');
+const ServerErrors = require('../../helpers/ServerErrors');
+const { User } = require('../../schemas/User');
+const ClientErrors = require('../../helpers/ClientErrors');
 const bcrypt = require('bcrypt');
 const saltRounds = parseInt(process.env.saltRounds);
-const { getToken } = require('../helpers/tokenModules');
+const { getToken } = require('../../helpers/tokenModules');
 
 async function model(args) {
   try {

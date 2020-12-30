@@ -1,6 +1,5 @@
 const { UNAUTHORIZED } = require('http-status');
-
-const model = require('../models/logout.model');
+const model = require('../../models/user/logout.model');
 
 async function controller(req, res) {
   try {

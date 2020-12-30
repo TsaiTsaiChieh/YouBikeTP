@@ -1,6 +1,6 @@
 const { BAD_REQUEST } = require('http-status');
-const ajv = require('../helpers/ajvUtil');
-const model = require('../models/login.model');
+const ajv = require('../../helpers/ajvUtil');
+const model = require('../../models/user/login.model');
 
 async function controller(req, res) {
   const now = Date.now();
