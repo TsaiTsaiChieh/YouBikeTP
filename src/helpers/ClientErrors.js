@@ -1,4 +1,4 @@
-const { CONFLICT } = require('http-status');
+const { CONFLICT, UNAUTHORIZED } = require('http-status');
 
 class ExtendableError extends Error {
   constructor(message, status, isPublic, code) {
@@ -18,6 +18,13 @@ class ResourceAlreadyExist extends ExtendableError {
   }
 }
 
+class PasswordIsWrong extends ExtendableError {
+  constructor(message, status = 401000, isPublic = true, code = UNAUTHORIZED) {
+    super(message, status, isPublic, code);
+  }
+}
+
 module.exports = {
-  ResourceAlreadyExist
+  ResourceAlreadyExist,
+  PasswordIsWrong
 };
