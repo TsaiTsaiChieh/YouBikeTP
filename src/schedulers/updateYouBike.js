@@ -1,13 +1,12 @@
-const axios = require('axios');
-const { API } = process.env;
 const { YouBike } = require('../schemas/YouBike');
 const moment = require('moment');
 const ServerErrors = require('../helpers/ServerErrors');
+const { getDataFromAPI } = require('../helpers/databaseEngine');
 
 async function main() {
   try {
     const data = await getDataFromAPI();
-    await upsertYouBikeTable(repackage(data));
+    await upsertYouBikeTable(repackage(data)); // Create or update site data
     console.log('完成更新 YouBike 資訊');
     return Promise.resolve();
   } catch (err) {
@@ -15,16 +14,7 @@ async function main() {
   }
 }
 
-async function getDataFromAPI() {
-  try {
-    const { data } = await axios.get(API);
-    return Promise.resolve(data.retVal);
-  } catch (err) {
-    console.log(err);
-    return Promise.reject(new ServerErrors.GetDataFromAPI(err.stack));
-  }
-}
-
+// Repackage data field
 function repackage(data) {
   const temp = {};
   for (const key in data) {
@@ -47,6 +37,7 @@ function repackage(data) {
   return temp;
 }
 
+// Mapping region id
 function regionMapping(area) {
   switch (area) {
     case '信義區':
@@ -80,9 +71,8 @@ function regionMapping(area) {
 
 async function upsertYouBikeTable(data) {
   try {
-    for (const key in data) {
-      await YouBike.upsert(data[key], { where: { id: key } });
-    }
+    for (const key in data) await YouBike.upsert(data[key], { where: { id: key } });
+    return Promise.resolve();
   } catch (err) {
     return Promise.reject(new ServerErrors.MySQLError(err.stack));
   }
