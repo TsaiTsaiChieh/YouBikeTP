@@ -4,6 +4,7 @@ const ClientErrors = require('./ClientErrors');
 const axios = require('axios');
 const { API } = process.env;
 
+// 搜尋有無該評論且該評論屬於目前登入的使用者
 async function findCommitBelongToCertainUser(args) {
   try {
     const result = await Comment.findOne({ where: { id: args.comment_id, uid: args.user.id }, raw: true });
@@ -14,6 +15,7 @@ async function findCommitBelongToCertainUser(args) {
   }
 };
 
+// 從 API 取得資料
 async function getDataFromAPI() {
   try {
     const { data } = await axios.get(API);

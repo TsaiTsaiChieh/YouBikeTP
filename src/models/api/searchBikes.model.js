@@ -10,6 +10,7 @@ async function model(args) {
   }
 }
 
+// 根據可借車位數搜尋站場
 async function searchSiteByBikes(num) {
   try {
     const result = await YouBike.findAll({ where: { available_num: num }, raw: true });

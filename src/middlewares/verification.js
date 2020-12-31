@@ -11,8 +11,8 @@ async function verification(req, res, next) {
     if (!authorization) return res.status(UNAUTHORIZED).send('Should login');
     const token = authorization.replace('Bearer ', '');
     const userInfo = await findUser(token);
-    await checkTokenIsExpired(now, userInfo.token_expired);
-    req.user = userInfo;
+    await checkTokenIsExpired(now, userInfo.token_expired); // 檢查 token 是否過期
+    req.user = userInfo; // 將使用者資訊代入 req
     next();
   } catch (err) {
     return res.status(UNAUTHORIZED).send(err);

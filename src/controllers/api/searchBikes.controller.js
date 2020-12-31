@@ -5,7 +5,7 @@ const model = require('../../models/api/searchBikes.model');
 async function controller(req, res) {
   const schema = {
     type: 'object',
-    required: ['num'],
+    required: ['num'], // 可借的車位數量
     properties: {
       num: {
         type: 'number',

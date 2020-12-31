@@ -7,7 +7,7 @@ async function controller(req, res) {
     type: 'object',
     required: ['site_id', 'comment'],
     properties: {
-      site_id: {
+      site_id: { // 站場代碼
         type: 'number'
       },
       comment: {

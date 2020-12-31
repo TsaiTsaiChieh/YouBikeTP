@@ -13,6 +13,7 @@ async function model(args) {
   }
 }
 
+// 搜尋增加評論的站場是否存在
 async function findSite(site_id) {
   try {
     const result = await YouBike.findOne({ where: { id: site_id }, raw: true });
@@ -23,6 +24,7 @@ async function findSite(site_id) {
   }
 };
 
+// 增加評論
 async function createComment(args) {
   try {
     const result = await Comment.create({

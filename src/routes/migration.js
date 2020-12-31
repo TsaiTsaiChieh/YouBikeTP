@@ -8,6 +8,7 @@ const { INTERNAL_SERVER_ERROR } = require('http-status');
 const regions = require('../json/regions.json');
 const { Record } = require('../schemas/Record');
 
+// 創立 schema
 // router.get('/sync', async function(req, res) {
 //   try {
 //     await YouBike.sync();
@@ -25,6 +26,7 @@ const { Record } = require('../schemas/Record');
 //   }
 // });
 
+// 新增場站的區域
 router.get('/insert_region', async function(req, res) {
   regions.map(async function(region) {
     await Region.create(region);

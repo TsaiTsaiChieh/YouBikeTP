@@ -12,6 +12,7 @@ async function model(args) {
   }
 }
 
+// 取得最多評論的站，並根據每站的代碼作排序
 async function getMostCommentSortBySites(args) {
   try {
     const offset = (args.page - 1) * limit;

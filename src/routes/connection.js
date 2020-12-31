@@ -3,6 +3,7 @@ const { INTERNAL_SERVER_ERROR } = require('http-status');
 const { mysql } = require('../configs/mysqlSetting');
 const router = express.Router();
 
+// Test Mysql 連線
 router.get('/', async function(req, res) {
   try {
     await mysql.authenticate();

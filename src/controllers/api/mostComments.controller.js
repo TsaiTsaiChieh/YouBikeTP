@@ -12,7 +12,7 @@ async function controller(req, res) {
     }
   };
   req.query.page = parseInt(req.query.page);
-  if (!req.query.page) req.query.page = 1;
+  if (!req.query.page) req.query.page = 1; // 初始分頁為 1
   const valid = ajv.validate(schema, req.query);
   if (!valid) return res.status(BAD_REQUEST).json(ajv.errors);
   try {

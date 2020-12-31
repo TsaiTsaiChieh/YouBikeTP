@@ -4,7 +4,7 @@ const { findCommitBelongToCertainUser } = require('../../helpers/databaseEngine'
 
 async function model(args) {
   try {
-    await findCommitBelongToCertainUser(args);
+    await findCommitBelongToCertainUser(args); // 搜尋該評論是否存在且屬於該使用者
     const result = await deleteComment(args);
     return Promise.resolve(result);
   } catch (err) {
@@ -12,6 +12,7 @@ async function model(args) {
   }
 }
 
+// 刪除評論
 async function deleteComment(args) {
   try {
     await Comment.destroy({ where: { id: args.comment_id, uid: args.user.id } });

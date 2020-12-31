@@ -1,6 +1,4 @@
 const ServerErrors = require('../../helpers/ServerErrors');
-const { YouBike } = require('../../schemas/YouBike');
-const { Region } = require('../../schemas/Region');
 const { QueryTypes } = require('sequelize');
 const { mysql } = require('../../configs/mysqlSetting');
 
@@ -13,6 +11,7 @@ async function model(args) {
   }
 }
 
+// 根據區域名字搜尋站場
 async function searchArea(name) {
   try {
     const result = await mysql.query(
