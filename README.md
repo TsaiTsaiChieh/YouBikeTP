@@ -10,7 +10,52 @@
 * **Search area:** `GET` http://ec2-3-19-50-116.us-east-2.compute.amazonaws.com/api/search_area?name=大同
 * **Search bike:** `GET` http://ec2-3-19-50-116.us-east-2.compute.amazonaws.com/api/search_bike?num=0
 
-## User registration
+## Technologies
+* Applied **Model-Controller** design pattern for better code readability
+* Import another JSON schema validator **AJV** to validate input parameter
+* **Node-schedule** for frequent database update
+* Prevented SQL injection attacks by **preparing queries**
+* Safely store user password by generating salt & hash
+* The server has set up on **AWS EC2** and **AWS RDS**
+* Implemented database **CRUD** for user login/logout, comments information and search site
+
+## Technology Stack
+### Programming Language
+* JavaScript
+### Backend
+* NodeJS
+* ExpressJS
+* Linux
+* PM2
+### SQL Database
+* MySQL
+* CRUD
+* Index, Primary key, Foreign key
+### Other module
+* AJV
+* Axios
+* Bcrypt
+* dotenv
+* moment
+* sequelize ORM
+* node-schedule-tz
+
+### AWS Cloud Platform
+* Elastic Compute Cloud (EC2)
+* Relational Database Service (RDS)
+### Tools
+* Git / GitHub
+* Postman
+* ESLint
+### Key Concepts
+* RESTful APIs
+* Design Patterns: controller(validation) & model
+
+## Database Schema
+![](https://i.imgur.com/2IaJfYL.png)
+
+## API doc
+### User registration
 * **End Point:** `/user/`
 * **Method:** `POST`
 * **Request Body:**
@@ -45,7 +90,7 @@ password | String | Required
 ```
 
 
-## User login
+### User login
 * **End Point:** `/token/`
 * **Method:** `POST`
 * **Request Body:**
@@ -72,7 +117,7 @@ password | String | Required
 }
 ```
 
-## User logout
+### User logout
 * **End Point:** `/token/`
 * **Method:** `DELETE`
 * **Request Headers:**
@@ -88,7 +133,7 @@ Authorization | String | Access token preceding Bearer . For example: `Bearer 37
 Logout successful.
 ```
 
-## Add comment
+### Add comment
 * **End Point:** `/comment/`
 * **Method:** `POST`
 * **Request Headers:**
@@ -156,7 +201,7 @@ comment | String | Required
 }
 ```
 
-## DELETE comment
+### DELETE comment
 * **End Point:** `/comment/`
 * **Method:** `DELETE`
 * **Request Headers:**
@@ -187,7 +232,7 @@ comment_id | Number | Required
 }
 ```
 
-## Most comments
+### Most comments
 * **End Point:** `/api/most_comment`
 * **Method:** `GET`
 * **Query Parameters::**
@@ -240,7 +285,7 @@ https://[Host_Name]/api/most_comment?page=2
 ]
 ```
 
-## Search area
+### Search area
 * **End Point:** `/api/search_area`
 * **Method:** `GET`
 * **Query Parameters::**
@@ -311,7 +356,7 @@ https://[Host_Name]/api/search_site_name?name=安和
 ]
 ```
 
-## Search area
+### Search area
 * **End Point:** `/api/search_area`
 * **Method:** `GET`
 * **Query Parameters::**
@@ -348,7 +393,7 @@ https://[Host_Name]/api/search_area?name=大同
 ]
 ```
 
-## Search bike
+### Search bike
 * **End Point:** `/api/search_bike`
 * **Method:** `GET`
 * **Query Parameters::**
