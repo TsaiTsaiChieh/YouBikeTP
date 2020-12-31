@@ -6,6 +6,7 @@ const { User } = require('../schemas/User');
 const { Comment } = require('../schemas/Comment');
 const { INTERNAL_SERVER_ERROR } = require('http-status');
 const regions = require('../json/regions.json');
+const { Record } = require('../schemas/Record');
 
 // router.get('/sync', async function(req, res) {
 //   try {
@@ -13,6 +14,7 @@ const regions = require('../json/regions.json');
 //     await Region.sync();
 //     await User.sync();
 //     await Comment.sync();
+//     await Record.sync();
 //     return res.send('Sync DB.');
 //   } catch (err) {
 //     console.log(err);
